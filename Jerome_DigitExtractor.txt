@@ -1,0 +1,40 @@
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class DigitPrinter
+{
+	public static void main(String[] args)
+	{
+		// Variables
+		int input = 0;
+		int counter = 0;
+		String number = "";
+		DecimalFormat numFormat = new DecimalFormat("#,###,##0");
+		
+		// Prompt user
+		System.out.println("Please input a random integer.");
+		Scanner keyboard = new Scanner(System.in);
+		// Take next Integer and store it in variable
+		input = keyboard.nextInt();
+		// Convert Integer to String
+		number = String.valueOf(input);
+		System.out.println("The number " + numFormat.format(input) + " Consists of the digits: ");
+		digitExtract(number, counter);
+	}	// End main
+	
+	public static void digitExtract(String number, int counter)
+	{
+		if (counter == number.length())
+		{
+			return;
+		}
+		else
+		{
+			char[] digits = number.toCharArray();
+			System.out.println(digits[counter]);
+			counter++;
+			// Recursive call
+			digitExtract(number, counter);
+		}	// End if
+	}	// End method
+}	// End Program
